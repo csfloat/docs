@@ -80,117 +80,74 @@ curl "https://csgofloat.com/api/v1/listings"
 ```json
 [
     {
-        "id": "321906995529646373",
-        "created_at": "2021-06-07T07:03:28.478474Z",
-        "type": "buy_now",
-        "price": 2061900,
-        "state": "listed",
-        "seller": {
-            "avatar": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/e2/e235f369bdfb59b54b59bc3b258ea1f64758fac1_full.jpg",
-            "flags": 48,
-            "online": false,
-            "stall_public": true,
-            "statistics": {
-                "median_trade_time": 1940,
-                "total_failed_trades": 0,
-                "total_trades": 38,
-                "total_verified_trades": 38
-            },
-            "steam_id": "76561197975205218",
-            "username": "magnemaus"
+    "id": "324288155723370196",
+    "created_at": "2021-06-13T20:45:21.311794Z",
+    "type": "buy_now",
+    "price": 260000,
+    "state": "listed",
+    "seller": {
+        "avatar": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/97/974f0a94f47f50a1a6a769fc8ff093cb93a49066_full.jpg",
+        "flags": 435,
+        "online": true,
+        "stall_public": true,
+        "statistics": {
+            "median_trade_time": 236,
+            "total_failed_trades": 0,
+            "total_trades": 24,
+            "total_verified_trades": 24
         },
-        "item": {
-            "asset_id": "21559522401",
-            "def_index": 515,
-            "paint_index": 619,
-            "paint_seed": 543,
-            "float_value": 0.03165145590901375,
-            "icon_url": "-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0ebcZThQ6tCvq4GGqOT1I6vZn3lU18hwmOvN8IXvjVCLqSwwOj6rYJiRdg42NAuE-lW5kri5hpbuvM7AzHtmsnMh4imPzUa3gB4aaOw9hfCeVxzAUJ5TOTzr",
-            "d_param": "4920288687732198929",
-            "is_stattrak": false,
-            "is_souvenir": false,
-            "rarity": 6,
-            "quality": 3,
-            "market_hash_name": "★ Butterfly Knife | Doppler (Factory New)",
-            "low_rank": 456,
-            "high_rank": 270,
-            "tradable": 0,
-            "inspect_link": "steam://rungame/730/76561202255233023/+csgo_econ_action_preview%20S76561197975205218A21559522401D4920288687732198929",
-            "has_screenshot": true,
-            "scm": {
-                "price": 3203808,
-                "volume": 1
-            },
-            "item_name": "★ Butterfly Knife | Doppler",
-            "wear_name": "Factory New",
-            "phase": "Sapphire",
-            "description": "It has been painted with black and silver metallic paints using a marbleizing medium, then candy coated.\\n\\n<i>Getting lost in its color can prove fatal</i>",
-            "badges": []
-        },
-        "is_seller": false,
-        "min_offer_price": 1958805,
-        "max_offer_discount": 500,
-        "is_watchlisted": false,
-        "watchers": 0
+        "steam_id": "76561198084749846",
+        "username": "Step7750"
     },
-    {
-        "id": "319448156230257615",
-        "created_at": "2021-05-31T12:12:55.509603Z",
-        "type": "buy_now",
-        "price": 795000,
-        "state": "listed",
-        "seller": {
-            "avatar": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/25/2568a702116748ccfd2c9aed9378f2a1bfd3bf2f_full.jpg",
-            "flags": 48,
-            "online": false,
-            "stall_public": true,
-            "statistics": {
-                "median_trade_time": 697,
-                "total_failed_trades": 0,
-                "total_trades": 1,
-                "total_verified_trades": 1
-            },
-            "steam_id": "76561198168522001",
-            "username": "¡VSN B/S>Skins +Trading"
+    "item": {
+        "asset_id": "22547095285",
+        "def_index": 16,
+        "paint_index": 449,
+        "paint_seed": 700,
+        "float_value": 0.02796577662229538,
+        "icon_url": "-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhjxszYfi5H5di5mr-HnvD8J_WCkmkEvp0pi7zDodv3jAHj-UM5ZGr7INfHJAc9MlzV-FK_kO281pa_ot2XnrA-A3kA",
+        "d_param": "17054198177995786400",
+        "is_stattrak": false,
+        "is_souvenir": false,
+        "rarity": 5,
+        "quality": 4,
+        "market_hash_name": "M4A4 | Poseidon (Factory New)",
+        "stickers": [
+            {
+                "stickerId": 1060,
+                "slot": 3,
+                "icon_url": "columbus2016/nv_holo.fbbf7dc3ef16ade69ac294589fbe97f0a3169003.png",
+                "name": "Sticker | Team EnVyUs (Holo) | MLG Columbus 2016",
+                "scm": {
+                    "price": 736,
+                    "volume": 1
+                }
+            }
+        ],
+        "tradable": 0,
+        "inspect_link": "steam://rungame/730/76561202255233023/+csgo_econ_action_preview%20S76561198084749846A22547095285D17054198177995786400",
+        "has_screenshot": true,
+        "scm": {
+            "price": 175076,
+            "volume": 0
         },
-        "item": {
-            "asset_id": "21903991402",
-            "def_index": 507,
-            "paint_index": 415,
-            "paint_seed": 642,
-            "float_value": 0.034549176692962646,
-            "icon_url": "-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf2PLacDBA5ciJlY20heL2KoTcl3lT5MB4kOzFyoD8j1yg5UNkaz_xIdfEd1A5aQ3U-lPskunphJHptZvPwSM26CUht3_UmUe3gEpSLrs4ZlidBgY",
-            "d_param": "14621055123599774367",
-            "is_stattrak": false,
-            "is_souvenir": false,
-            "rarity": 6,
-            "quality": 3,
-            "market_hash_name": "★ Karambit | Doppler (Factory New)",
-            "low_rank": 465,
-            "high_rank": 151,
-            "tradable": 0,
-            "inspect_link": "steam://rungame/730/76561202255233023/+csgo_econ_action_preview%20S76561198168522001A21903991402D14621055123599774367",
-            "has_screenshot": true,
-            "scm": {
-                "price": 1301546,
-                "volume": 5
-            },
-            "item_name": "★ Karambit | Doppler",
-            "wear_name": "Factory New",
-            "phase": "Ruby",
-            "description": "It has been painted with black and silver metallic paints using a marbleizing medium, then candy coated.\\n\\n<i>Getting lost in its color can prove fatal</i>",
-            "badges": []
-        },
-        "is_seller": false,
-        "min_offer_price": 675750,
-        "max_offer_discount": 1500,
-        "is_watchlisted": false,
-        "watchers": 0
-    }
+        "item_name": "M4A4 | Poseidon",
+        "wear_name": "Factory New",
+        "description": "It has been custom painted with a depiction of a battle between Pisces and Poseidon.\\n\\n<i>Three can keep a secret if two of them are dead</i>",
+        "collection": "The Gods and Monsters Collection",
+        "badges": []
+    },
+    "is_seller": false,
+    "min_offer_price": 221000,
+    "max_offer_discount": 1500,
+    "is_watchlisted": false,
+    "watchers": 0
+  }
+  ...
 ]
 ```
 
-This endpoint retrieves all listings.
+This endpoint retrieves all active listings on CSGOFloat Market.
 
 ### HTTP Request
 
@@ -201,7 +158,7 @@ This endpoint retrieves all listings.
 Parameter | Default | Description
 --------- | ------- | -----------
 page | 0 | Which page of listings to start from
-limit | 100 | How many listings to return
+limit | 100 | How many listings to return. Max of 100.
 order | `best_deal` | How to order the listings
 category | 0 | Can be one of: 0 = `any`, 1 = `normal`, 2 = `stattrak`, 3 = `souvenir`
 def_index | | Only include listings that have a one of the given def index(es)
@@ -210,136 +167,107 @@ max_float | | Only include listings that have a float lower then this
 rarity | | Only include listings that have this rarity
 paint_seed | | Only include listings that have this paint seed
 paint_index | | Only include listings that have this paint index
-user_id | | Only include listings from this user
-collection | | Only include listings from this collection
-min_price | | Only include listings have a price higher then this
-max_price | | Only include listings have a price lower then this
+user_id | | Only include listings from this SteamID64
+collection | | Only include listings from this collection (ie. `set_bravo_ii`, derived from the schema)
+min_price | | Only include listings have a price higher then this (in cents)
+max_price | | Only include listings have a price lower then this (in cents)
 market_hash_name | | Only include listings that have this market hash name
 type | | Either `buy_now` or `auction`
-stickers | | Must be in the form: `<STICKER-ID>\|<POSITION>[,<STICKER-ID>\|<POSITION>...]`
+stickers | | Must be in the form: `<ID>|<POSITION>?[,<ID>|<POSITION>?...]`. Position being the sticker slot on the weapon.
 
 ## Get a Specific Listing
 
 ```shell
-curl "https://csgofloat.com/api/v1/listings/<LISTING-ID>"
+curl "https://csgofloat.com/api/v1/listings/324288155723370196"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-    "id": "292312870132253796",
-    "created_at": "2021-03-17T15:06:59.155367Z",
+    "id": "324288155723370196",
+    "created_at": "2021-06-13T20:45:21.311794Z",
     "type": "buy_now",
-    "price": 8900,
+    "price": 260000,
     "state": "listed",
     "seller": {
-        "flags": 48,
-        "obfuscated_id": "9169061817522033479",
-        "online": false,
-        "stall_public": false,
+        "avatar": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/97/974f0a94f47f50a1a6a769fc8ff093cb93a49066_full.jpg",
+        "flags": 435,
+        "online": true,
+        "stall_public": true,
         "statistics": {
-            "median_trade_time": 305,
+            "median_trade_time": 236,
             "total_failed_trades": 0,
-            "total_trades": 13,
-            "total_verified_trades": 13
-        }
+            "total_trades": 24,
+            "total_verified_trades": 24
+        },
+        "steam_id": "76561198084749846",
+        "username": "Step7750"
     },
     "item": {
-        "asset_id": "21078095468",
-        "def_index": 60,
-        "paint_index": 77,
-        "paint_seed": 346,
-        "float_value": 0.26253828406333923,
-        "icon_url": "-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhz2v_Nfz5H_uO-jb-NmOXxIK_ulGRD7cR9teTE8YXghRrhrRBrMWD7coCQegU6aQyE_gC6xOi6gJC5tJTMn3BqvyNztH_VnRS-n1gSOeVXeHpm",
-        "d_param": "721253437254664138",
+        "asset_id": "22547095285",
+        "def_index": 16,
+        "paint_index": 449,
+        "paint_seed": 700,
+        "float_value": 0.02796577662229538,
+        "icon_url": "-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhjxszYfi5H5di5mr-HnvD8J_WCkmkEvp0pi7zDodv3jAHj-UM5ZGr7INfHJAc9MlzV-FK_kO281pa_ot2XnrA-A3kA",
+        "d_param": "17054198177995786400",
         "is_stattrak": false,
         "is_souvenir": false,
-        "rarity": 2,
+        "rarity": 5,
         "quality": 4,
-        "market_hash_name": "M4A1-S | Boreal Forest (Field-Tested)",
+        "market_hash_name": "M4A4 | Poseidon (Factory New)",
         "stickers": [
             {
-                "stickerId": 55,
-                "slot": 0,
-                "icon_url": "emskatowice2014/fnatic.7f37dae42f8afbd799b89f77334be023368ba27a.png",
-                "name": "Sticker | Fnatic | Katowice 2014",
-                "scm": {
-                    "price": 41000,
-                    "volume": 0
-                }
-            },
-            {
-                "stickerId": 55,
-                "slot": 1,
-                "wear": 0.09002881,
-                "icon_url": "emskatowice2014/fnatic.7f37dae42f8afbd799b89f77334be023368ba27a.png",
-                "name": "Sticker | Fnatic | Katowice 2014",
-                "scm": {
-                    "price": 41000,
-                    "volume": 0
-                }
-            },
-            {
-                "stickerId": 73,
-                "slot": 2,
-                "wear": 0.21217501,
-                "icon_url": "emskatowice2014/reason.d48f01f2758c2852ef32a68c49f7039ce211500a.png",
-                "name": "Sticker | Reason Gaming | Katowice 2014",
-                "scm": {
-                    "price": 118625,
-                    "volume": 0
-                }
-            },
-            {
-                "stickerId": 73,
+                "stickerId": 1060,
                 "slot": 3,
-                "icon_url": "emskatowice2014/reason.d48f01f2758c2852ef32a68c49f7039ce211500a.png",
-                "name": "Sticker | Reason Gaming | Katowice 2014",
+                "icon_url": "columbus2016/nv_holo.fbbf7dc3ef16ade69ac294589fbe97f0a3169003.png",
+                "name": "Sticker | Team EnVyUs (Holo) | MLG Columbus 2016",
                 "scm": {
-                    "price": 118625,
-                    "volume": 0
+                    "price": 736,
+                    "volume": 1
                 }
             }
         ],
         "tradable": 0,
+        "inspect_link": "steam://rungame/730/76561202255233023/+csgo_econ_action_preview%20S76561198084749846A22547095285D17054198177995786400",
         "has_screenshot": true,
         "scm": {
-            "price": 11,
+            "price": 175076,
             "volume": 0
         },
-        "item_name": "M4A1-S | Boreal Forest",
-        "wear_name": "Field-Tested",
-        "description": "It has been painted using a forest camouflage hydrographic.\\n\\n<i>The woods can be a dangerous place... never travel alone</i>",
-        "collection": "The Italy Collection",
+        "item_name": "M4A4 | Poseidon",
+        "wear_name": "Factory New",
+        "description": "It has been custom painted with a depiction of a battle between Pisces and Poseidon.\\n\\n<i>Three can keep a secret if two of them are dead</i>",
+        "collection": "The Gods and Monsters Collection",
         "badges": []
     },
     "is_seller": false,
-    "min_offer_price": 7565,
+    "min_offer_price": 221000,
     "max_offer_discount": 1500,
     "is_watchlisted": false,
     "watchers": 0
 }
 ```
 
-This endpoint retrieves a specific listing.
+This endpoint retrieves the details for a specific listing, regardless of whether it is "active" or "in-active" (ie. `state` != `listed`).
 
 ### HTTP Request
 
-`GET https://csgofloat.com/api/v1/listings/<LISTING-ID>`
+`GET https://csgofloat.com/api/v1/listings/<ID>`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-listing_id | The ID of the listing to retrieve
+ID | The ID of the listing to retrieve
 
 ## List an item
 
 ```shell
 curl -X POST "https://csgofloat.com/api/v1/listings" \
 -H "Authorization: <API-KEY>; Content-Type: application/json" \
--d '{"asset_id": <ID>, "type": <TYPE>, ("price": <INT>,  "max_offer_discount": <INT> | "reserve_price": <INT>, "duration_days": <DURATION>), ["description": <TEXT>, "private": <BOOLEAN>]}'
+-d '{"asset_id": 21078095468, "type": "buy_now", "price": 8900, "description": "Just for show", "private": false}'
 ```
 
 > The above command returns JSON structured like this:
@@ -350,6 +278,7 @@ curl -X POST "https://csgofloat.com/api/v1/listings" \
     "created_at": "2021-03-17T15:06:59.155367Z",
     "type": "buy_now",
     "price": 8900,
+    "description": "Just for show",
     "state": "listed",
     "seller": {
         "flags": 48,
@@ -440,7 +369,7 @@ curl -X POST "https://csgofloat.com/api/v1/listings" \
 }
 ```
 
-This endpoint retrieves a specific listing.
+This endpoint retrieves the details for a specific listing, regardless of whether it is "active" or "in-active" (ie. `state` != `listed`). Requires an authorization header.
 
 ### HTTP Request
 
@@ -450,11 +379,11 @@ This endpoint retrieves a specific listing.
 
 Parameter | Default | Description | Optional
 --------- | --------| ----------- | ----------
-type | `buy_now` | Either `buy_now` or `auction` | NO
+type | `buy_now` | Either `buy_now` or `auction` | YES
 asset_id | | The ID of the item to list | NO
-price | | `buy_now` price | NO
-max_offer_discount | | `buy_now` max discount for an offer | YES
-reserved_price | | `auction` start price | NO
-duration_days | | `auction` duration in days. Can be: `1`, `3`, `5`, `7`, or `14` | NO
-description | "" | User defined description. Max characters of 180. | YES
+price | | Either the `buy_now` price or the current bid or reserve price on an `auction` | NO (if `buy_now`)
+max_offer_discount | Set in user profile | `buy_now` max discount for an offer. This will override the default set in your profile. | YES
+reserve_price  | | `auction` start price | NO (if `auction`)
+duration_days | | `auction` duration in days. Can be: `1`, `3`, `5`, `7`, or `14` | NO (if `auction`)
+description | | User defined description. Max characters of 180. | YES
 private | false | If `true`, will hide listings from public searches | YES
