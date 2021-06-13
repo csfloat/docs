@@ -450,11 +450,11 @@ This endpoint retrieves a specific listing.
 
 Parameter | Default | Description | Optional
 --------- | --------| ----------- | ----------
-Type | `buy_now` | Either `buy_now` or `auction` | NO
-Asset ID | | The ID of the item to list | NO
-Price | | `buy_now` price | NO
-Max Offer Discount | | Max discount for an offer | YES
-Reserved Price | | `auction` start price | NO
-Duration Days | | `auction` duration in days. Can be: `1`, `3`, `5`, `7`, or `14` | NO
-Description | "" | User defined description. Max characters of 180. | YES
-Private | false | If `true`, will hide listings from public searches | YES
+type | `buy_now` | Either `buy_now` or `auction` | NO
+asset_id | | The ID of the item to list | NO
+price | | `buy_now` price | NO
+max_offer_discount | | Max discount for an offer | YES
+reserved_price | | `auction` start price | NO
+duration_days | | `auction` duration in days. Can be: `1`, `3`, `5`, `7`, or `14` | NO
+description | "" | User defined description. Max characters of 180. | YES
+private | false | If `true`, will hide listings from public searches | YES
