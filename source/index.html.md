@@ -203,7 +203,7 @@ Parameter | Default | Description
 page | 0 | Which page of listings to start from
 limit | 100 | How many listings to return
 order | `best_deal` | How to order the listings
-category | 0 | Can be one of: <ul><li>0 = `any`</li><li>1 = `normal`</li><li>2 = `stattrak`</li><li>3 = `souvenir`</li></ul>
+category | 0 | Can be one of: 0 = `any`, 1 = `normal`, 2 = `stattrak`, 3 = `souvenir`
 def_index | | Only include listings that have a one of the given def index(es)
 min_float | | Only include listings that have a float higher then this
 max_float | | Only include listings that have a float lower then this
@@ -215,7 +215,7 @@ collection | | Only include listings from this collection
 min_price | | Only include listings have a price higher then this
 max_price | | Only include listings have a price lower then this
 market_hash_name | | Only include listings that have this market hash name
-type | | Can be one of: <ul><li>`buy_now`</li><li>`auction`</li></ul>
+type | | Either `buy_now` or `auction`
 stickers | | Must be in the form: `<STICKER-ID>\|<POSITION>[,<STICKER-ID>\|<POSITION>...]`
 
 ## Get a Specific Listing
@@ -334,3 +334,127 @@ Parameter | Description
 --------- | -----------
 listing_id | The ID of the listing to retrieve
 
+## List an item
+
+```shell
+curl -X POST "http://csgofloat.com/api/v1/listings" \
+-H "Authorization: <API-KEY>; Content-Type: application/json"
+-d '{"asset_id": <ID>, "type": <TYPE>, ("price": <INT>,  "max_offer_discount": <INT> | "reserve_price": <INT>, "duration_days": <DURATION>), ["description": <TEXT>, "private": <BOOLEAN>}]'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "id": "292312870132253796",
+    "created_at": "2021-03-17T15:06:59.155367Z",
+    "type": "buy_now",
+    "price": 8900,
+    "state": "listed",
+    "seller": {
+        "flags": 48,
+        "obfuscated_id": "9169061817522033479",
+        "online": false,
+        "stall_public": false,
+        "statistics": {
+            "median_trade_time": 305,
+            "total_failed_trades": 0,
+            "total_trades": 13,
+            "total_verified_trades": 13
+        }
+    },
+    "item": {
+        "asset_id": "21078095468",
+        "def_index": 60,
+        "paint_index": 77,
+        "paint_seed": 346,
+        "float_value": 0.26253828406333923,
+        "icon_url": "-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhz2v_Nfz5H_uO-jb-NmOXxIK_ulGRD7cR9teTE8YXghRrhrRBrMWD7coCQegU6aQyE_gC6xOi6gJC5tJTMn3BqvyNztH_VnRS-n1gSOeVXeHpm",
+        "d_param": "721253437254664138",
+        "is_stattrak": false,
+        "is_souvenir": false,
+        "rarity": 2,
+        "quality": 4,
+        "market_hash_name": "M4A1-S | Boreal Forest (Field-Tested)",
+        "stickers": [
+            {
+                "stickerId": 55,
+                "slot": 0,
+                "icon_url": "emskatowice2014/fnatic.7f37dae42f8afbd799b89f77334be023368ba27a.png",
+                "name": "Sticker | Fnatic | Katowice 2014",
+                "scm": {
+                    "price": 41000,
+                    "volume": 0
+                }
+            },
+            {
+                "stickerId": 55,
+                "slot": 1,
+                "wear": 0.09002881,
+                "icon_url": "emskatowice2014/fnatic.7f37dae42f8afbd799b89f77334be023368ba27a.png",
+                "name": "Sticker | Fnatic | Katowice 2014",
+                "scm": {
+                    "price": 41000,
+                    "volume": 0
+                }
+            },
+            {
+                "stickerId": 73,
+                "slot": 2,
+                "wear": 0.21217501,
+                "icon_url": "emskatowice2014/reason.d48f01f2758c2852ef32a68c49f7039ce211500a.png",
+                "name": "Sticker | Reason Gaming | Katowice 2014",
+                "scm": {
+                    "price": 118625,
+                    "volume": 0
+                }
+            },
+            {
+                "stickerId": 73,
+                "slot": 3,
+                "icon_url": "emskatowice2014/reason.d48f01f2758c2852ef32a68c49f7039ce211500a.png",
+                "name": "Sticker | Reason Gaming | Katowice 2014",
+                "scm": {
+                    "price": 118625,
+                    "volume": 0
+                }
+            }
+        ],
+        "tradable": 0,
+        "has_screenshot": true,
+        "scm": {
+            "price": 11,
+            "volume": 0
+        },
+        "item_name": "M4A1-S | Boreal Forest",
+        "wear_name": "Field-Tested",
+        "description": "It has been painted using a forest camouflage hydrographic.\\n\\n<i>The woods can be a dangerous place... never travel alone</i>",
+        "collection": "The Italy Collection",
+        "badges": []
+    },
+    "is_seller": false,
+    "min_offer_price": 7565,
+    "max_offer_discount": 1500,
+    "is_watchlisted": false,
+    "watchers": 0
+}
+```
+
+This endpoint retrieves a specific listing.
+
+### HTTP Request
+
+`POST http://csgofloat.com/api/v1/listings`
+
+### Body Parameters
+
+Parameter | Default | Description | Optional
+--------- | --------| ----------- | ----------
+Type | `buy_now` | Either `buy_now` or `auction` | NO
+Asset ID | | The ID of the item to list | NO
+Price | | `buy_now` price | NO
+Max Offer Discount | | Max discount for an offer | YES
+Reserved Price | | `auction` start price | NO
+Duration Days | | `auction` duration in days. Can be: `1`, `3`, `5`, `7`, or `14` | NO
+Description | "" | User defined description. Max characters of 180. | YES
+Private | false | If `true`, will hide listings from public searches | YES
