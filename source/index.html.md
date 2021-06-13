@@ -19,13 +19,13 @@ code_clipboard: true
 
 # Introduction
 
-Welcome to the Float Market API! You can use our API to access Float Market API endpoints, which can get information on various listings.
+Welcome to the CSGOFloat API! You can use our API to access CSGOFloat API endpoints, which can get information on various listings.
 
 You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
 # Authentication
 
-Float Market uses API keys to allow access to the API. You can register a new Float Market API key on your [profile](https://csgofloat.com/profile) under the "developer" tab.
+CSGOFloat uses API keys to allow access to the API. You can register a new CSGOFloat API key on your [profile](https://csgofloat.com/profile) under the "developer" tab.
 
 Float Market expects for the API key to be included in most API requests to the server in a header that looks like the following:
 
