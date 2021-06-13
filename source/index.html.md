@@ -72,8 +72,7 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 ## Get All Listings
 
 ```shell
-curl "https://csgofloat.com/api/v1/listings" \
-  -H "Authorization: <API-KEY>"
+curl "https://csgofloat.com/api/v1/listings"
 ```
 
 > The above command returns JSON structured like this:
@@ -201,42 +200,125 @@ This endpoint retrieves all listings.
 
 Parameter | Default | Description
 --------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-def_index | n/a | If set, the result will be filtered to only include listings that have a one of the given def index(s)
-min_float | n/a | If set, 
-max_float | n/a | If set, 
-rarity | n/a | If set, 
-paint_seed | n/a | If set, 
-paint_index | n/a | If set, 
-stickers | n/a | If set, 
-page | 0 | If set, 
-limit | 100 | If set, 
-user_id | n/a | If set, 
-order | `best_deal` | If set, 
-category | 0 | If set,
-collection | n/a | If set,
-min_price | n/a | If set,
-max_price | n/a | If set,
-market_hash_name | n/a | If set,
-type | n/a | If set,
+page | 0 | Which page of listings to start from
+limit | 100 | How many listings to return
+order | `best_deal` | How to order the listings
+category | 0 | Can be one of: <ul><li>0 = `any`</li><li>1 = `normal`</li><li>2 = `stattrak`</li><li>3 = `souvenir`</li></ul>
+def_index | | Only include listings that have a one of the given def index(es)
+min_float | | Only include listings that have a float higher then this
+max_float | | Only include listings that have a float lower then this
+rarity | | Only include listings that this rarity
+paint_seed | | Only include listings that this paint seed
+paint_index | | Only include listings that this paint index
+user_id | | Only include listings from this user
+collection | | Only include listings from this collection
+min_price | | Only include listings have a price higher then this
+max_price | | Only include listings have a price lower then this
+market_hash_name | | Only include listings that have this market hash name
+type | | Can be one of: <ul><li>`buy_now`</li><li>`auction`</li></ul>
+stickers | | Must be in the form: `<STICKER-ID>\|<POSITION>[,<STICKER-ID>\|<POSITION>...]`
 
 ## Get a Specific Listing
 
 ```shell
-curl "http://example.com/api/kittens/2" \
-  -H "Authorization: meowmeowmeow"
+curl "http://csgofloat.com/api/v1/listings/<LISTING-ID>"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+    "id": "292312870132253796",
+    "created_at": "2021-03-17T15:06:59.155367Z",
+    "type": "buy_now",
+    "price": 8900,
+    "state": "listed",
+    "seller": {
+        "flags": 48,
+        "obfuscated_id": "9169061817522033479",
+        "online": false,
+        "stall_public": false,
+        "statistics": {
+            "median_trade_time": 305,
+            "total_failed_trades": 0,
+            "total_trades": 13,
+            "total_verified_trades": 13
+        }
+    },
+    "item": {
+        "asset_id": "21078095468",
+        "def_index": 60,
+        "paint_index": 77,
+        "paint_seed": 346,
+        "float_value": 0.26253828406333923,
+        "icon_url": "-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhz2v_Nfz5H_uO-jb-NmOXxIK_ulGRD7cR9teTE8YXghRrhrRBrMWD7coCQegU6aQyE_gC6xOi6gJC5tJTMn3BqvyNztH_VnRS-n1gSOeVXeHpm",
+        "d_param": "721253437254664138",
+        "is_stattrak": false,
+        "is_souvenir": false,
+        "rarity": 2,
+        "quality": 4,
+        "market_hash_name": "M4A1-S | Boreal Forest (Field-Tested)",
+        "stickers": [
+            {
+                "stickerId": 55,
+                "slot": 0,
+                "icon_url": "emskatowice2014/fnatic.7f37dae42f8afbd799b89f77334be023368ba27a.png",
+                "name": "Sticker | Fnatic | Katowice 2014",
+                "scm": {
+                    "price": 41000,
+                    "volume": 0
+                }
+            },
+            {
+                "stickerId": 55,
+                "slot": 1,
+                "wear": 0.09002881,
+                "icon_url": "emskatowice2014/fnatic.7f37dae42f8afbd799b89f77334be023368ba27a.png",
+                "name": "Sticker | Fnatic | Katowice 2014",
+                "scm": {
+                    "price": 41000,
+                    "volume": 0
+                }
+            },
+            {
+                "stickerId": 73,
+                "slot": 2,
+                "wear": 0.21217501,
+                "icon_url": "emskatowice2014/reason.d48f01f2758c2852ef32a68c49f7039ce211500a.png",
+                "name": "Sticker | Reason Gaming | Katowice 2014",
+                "scm": {
+                    "price": 118625,
+                    "volume": 0
+                }
+            },
+            {
+                "stickerId": 73,
+                "slot": 3,
+                "icon_url": "emskatowice2014/reason.d48f01f2758c2852ef32a68c49f7039ce211500a.png",
+                "name": "Sticker | Reason Gaming | Katowice 2014",
+                "scm": {
+                    "price": 118625,
+                    "volume": 0
+                }
+            }
+        ],
+        "tradable": 0,
+        "has_screenshot": true,
+        "scm": {
+            "price": 11,
+            "volume": 0
+        },
+        "item_name": "M4A1-S | Boreal Forest",
+        "wear_name": "Field-Tested",
+        "description": "It has been painted using a forest camouflage hydrographic.\\n\\n<i>The woods can be a dangerous place... never travel alone</i>",
+        "collection": "The Italy Collection",
+        "badges": []
+    },
+    "is_seller": false,
+    "min_offer_price": 7565,
+    "max_offer_discount": 1500,
+    "is_watchlisted": false,
+    "watchers": 0
 }
 ```
 
@@ -244,40 +326,11 @@ This endpoint retrieves a specific listing.
 
 ### HTTP Request
 
-`GET http://csgofloat.com/api/v1/listings/<ID>`
+`GET http://csgofloat.com/api/v1/listings/<LISTING-ID>`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to retrieve
-
-## Delist a Specific Listing
-
-```shell
-curl "http://example.com/api/kittens/2" \
-  -X DELETE \
-  -H "Authorization: meowmeowmeow"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
-
-This endpoint delists a specific listing.
-
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
+listing_id | The ID of the listing to retrieve
 
