@@ -221,7 +221,7 @@ stickers | | Must be in the form: `<STICKER-ID>\|<POSITION>[,<STICKER-ID>\|<POSI
 ## Get a Specific Listing
 
 ```shell
-curl "http://csgofloat.com/api/v1/listings/<LISTING-ID>"
+curl "https://csgofloat.com/api/v1/listings/<LISTING-ID>"
 ```
 
 > The above command returns JSON structured like this:
@@ -326,7 +326,7 @@ This endpoint retrieves a specific listing.
 
 ### HTTP Request
 
-`GET http://csgofloat.com/api/v1/listings/<LISTING-ID>`
+`GET https://csgofloat.com/api/v1/listings/<LISTING-ID>`
 
 ### URL Parameters
 
@@ -337,7 +337,7 @@ listing_id | The ID of the listing to retrieve
 ## List an item
 
 ```shell
-curl -X POST "http://csgofloat.com/api/v1/listings" \
+curl -X POST "https://csgofloat.com/api/v1/listings" \
 -H "Authorization: <API-KEY>; Content-Type: application/json" \
 -d '{"asset_id": <ID>, "type": <TYPE>, ("price": <INT>,  "max_offer_discount": <INT> | "reserve_price": <INT>, "duration_days": <DURATION>), ["description": <TEXT>, "private": <BOOLEAN>]}'
 ```
@@ -444,7 +444,7 @@ This endpoint retrieves a specific listing.
 
 ### HTTP Request
 
-`POST http://csgofloat.com/api/v1/listings`
+`POST https://csgofloat.com/api/v1/listings`
 
 ### Body Parameters
 
