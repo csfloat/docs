@@ -339,7 +339,7 @@ listing_id | The ID of the listing to retrieve
 ```shell
 curl -X POST "http://csgofloat.com/api/v1/listings" \
 -H "Authorization: <API-KEY>; Content-Type: application/json" \
--d '{"asset_id": <ID>, "type": <TYPE>, ("price": <INT>,  "max_offer_discount": <INT> | "reserve_price": <INT>, "duration_days": <DURATION>), ["description": <TEXT>, "private": <BOOLEAN>}]'
+-d '{"asset_id": <ID>, "type": <TYPE>, ("price": <INT>,  "max_offer_discount": <INT> | "reserve_price": <INT>, "duration_days": <DURATION>), ["description": <TEXT>, "private": <BOOLEAN>]}'
 ```
 
 > The above command returns JSON structured like this:
