@@ -207,9 +207,9 @@ category | 0 | Can be one of: <ul><li>0 = `any`</li><li>1 = `normal`</li><li>2 =
 def_index | | Only include listings that have a one of the given def index(es)
 min_float | | Only include listings that have a float higher then this
 max_float | | Only include listings that have a float lower then this
-rarity | | Only include listings that this rarity
-paint_seed | | Only include listings that this paint seed
-paint_index | | Only include listings that this paint index
+rarity | | Only include listings that have this rarity
+paint_seed | | Only include listings that have this paint seed
+paint_index | | Only include listings that have this paint index
 user_id | | Only include listings from this user
 collection | | Only include listings from this collection
 min_price | | Only include listings have a price higher then this
