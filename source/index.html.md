@@ -338,7 +338,7 @@ listing_id | The ID of the listing to retrieve
 
 ```shell
 curl -X POST "http://csgofloat.com/api/v1/listings" \
--H "Authorization: <API-KEY>; Content-Type: application/json"
+-H "Authorization: <API-KEY>; Content-Type: application/json" \
 -d '{"asset_id": <ID>, "type": <TYPE>, ("price": <INT>,  "max_offer_discount": <INT> | "reserve_price": <INT>, "duration_days": <DURATION>), ["description": <TEXT>, "private": <BOOLEAN>}]'
 ```
 
@@ -453,7 +453,7 @@ Parameter | Default | Description | Optional
 type | `buy_now` | Either `buy_now` or `auction` | NO
 asset_id | | The ID of the item to list | NO
 price | | `buy_now` price | NO
-max_offer_discount | | Max discount for an offer | YES
+max_offer_discount | | `buy_now` max discount for an offer | YES
 reserved_price | | `auction` start price | NO
 duration_days | | `auction` duration in days. Can be: `1`, `3`, `5`, `7`, or `14` | NO
 description | "" | User defined description. Max characters of 180. | YES
