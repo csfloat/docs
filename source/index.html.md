@@ -32,7 +32,7 @@ Float Market expects for the API key to be included in most API requests to the 
 `Authorization: <API-KEY>`
 
 <aside class="notice">
-You must replace <code><API-KEY></code> with your personal API key.
+You must replace <code>&lt;API-KEY&gt;</code> with your personal API key.
 </aside>
 
 # Kittens
