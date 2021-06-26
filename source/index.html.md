@@ -27,7 +27,7 @@ You can view code examples in the dark area to the right, and you can switch the
 
 CSGOFloat uses API keys to allow access to the API. You can register a new CSGOFloat API key on your [profile](https://csgofloat.com/profile) under the "developer" tab.
 
-Float Market expects for the API key to be included in most API requests. Endpoints that require an API Key will state so. The authorization header should look like the following:
+CSGOFloat API expects for the API key to be included in most API requests. Endpoints that require an API Key will state so. The authorization header should look like the following:
 
 `Authorization: <API-KEY>`
 
@@ -127,7 +127,7 @@ Parameter | Default | Description
 --------- | ------- | -----------
 page | 0 | Which page of listings to start from
 limit | 100 | How many listings to return. Max of 100.
-order | `best_deal` | How to order the listings
+order | `best_deal` | How to order the listings. Can be one of: <ul><li>`lowest_price`</li><li>`highest_price`</li><li>`most_recent`</li><li>`expires_soon`</li><li>`lowest_float`</li><li>`highest_float`</li><li>`best_deal`</li><li>`highest_discount`</li><li>`float_rank`</li><li>`num_bids`</li></ul>
 category | 0 | Can be one of: 0 = `any`, 1 = `normal`, 2 = `stattrak`, 3 = `souvenir`
 def_index | | Only include listings that have a one of the given def index(es)
 min_float | | Only include listings that have a float higher then this
@@ -141,7 +141,7 @@ min_price | | Only include listings have a price higher then this (in cents)
 max_price | | Only include listings have a price lower then this (in cents)
 market_hash_name | | Only include listings that have this market hash name
 type | | Either `buy_now` or `auction`
-stickers | | Must be in the form: `<ID>\|<POSITION>?[,<ID>\|<POSITION>?...]`. Position being the sticker slot on the weapon.
+stickers | | Must be in the form: `ID\|POSITION?[,ID\|POSITION?...]`. Position being the sticker slot on the weapon.
 
 ## Get a Specific Listing
 
