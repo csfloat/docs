@@ -316,16 +316,16 @@
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
           </li>
           <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#listings" class="toc-h1 toc-link" data-title="Listings">Listings</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
+                    <a href="#get-all-listings" class="toc-h2 toc-link" data-title="Get All Listings">Get All Listings</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
+                    <a href="#get-a-specific-listing" class="toc-h2 toc-link" data-title="Get a Specific Listing">Get a Specific Listing</a>
                   </li>
                   <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#list-an-item" class="toc-h2 toc-link" data-title="List an item">List an item</a>
                   </li>
               </ul>
           </li>
@@ -355,44 +355,82 @@
 <aside class="notice">
 You must replace <code>&lt;API-KEY&gt;</code> with your personal API key.
 </aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="kd">get</span><span class="p">();</span>
+<h1 id='listings'>Listings</h1><h2 id='get-all-listings'>Get All Listings</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://csgofloat.com/api/v1/listings"</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"324288155723370196"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-06-13T20:45:21.311794Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buy_now"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">260000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"listed"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"seller"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/97/974f0a94f47f50a1a6a769fc8ff093cb93a49066_full.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"flags"</span><span class="p">:</span><span class="w"> </span><span class="mi">435</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"online"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"stall_public"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"statistics"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"median_trade_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">236</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"total_failed_trades"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"total_trades"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"total_verified_trades"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"steam_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"76561198084749846"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Step7750"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"asset_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22547095285"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"def_index"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"paint_index"</span><span class="p">:</span><span class="w"> </span><span class="mi">449</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"paint_seed"</span><span class="p">:</span><span class="w"> </span><span class="mi">700</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"float_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.02796577662229538</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"icon_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhjxszYfi5H5di5mr-HnvD8J_WCkmkEvp0pi7zDodv3jAHj-UM5ZGr7INfHJAc9MlzV-FK_kO281pa_ot2XnrA-A3kA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"d_param"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17054198177995786400"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"is_stattrak"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"is_souvenir"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"rarity"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"quality"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"market_hash_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M4A4 | Poseidon (Factory New)"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"stickers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"stickerId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1060</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"slot"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"icon_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"columbus2016/nv_holo.fbbf7dc3ef16ade69ac294589fbe97f0a3169003.png"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sticker | Team EnVyUs (Holo) | MLG Columbus 2016"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"scm"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">736</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"tradable"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"inspect_link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"steam://rungame/730/76561202255233023/+csgo_econ_action_preview%20S76561198084749846A22547095285D17054198177995786400"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"has_screenshot"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"scm"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">175076</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"item_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M4A4 | Poseidon"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"wear_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Factory New"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"It has been custom painted with a depiction of a battle between Pisces and Poseidon.</span><span class="se">\\</span><span class="s2">n</span><span class="se">\\</span><span class="s2">n&lt;i&gt;Three can keep a secret if two of them are dead&lt;/i&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"collection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Gods and Monsters Collection"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"badges"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"is_seller"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"min_offer_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">221000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"max_offer_discount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"is_watchlisted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"watchers"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
   </span><span class="p">}</span><span class="w">
+  </span><span class="err">...</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
-<p>This endpoint retrieves all kittens.</p>
+<p>This endpoint retrieves all active listings on CSGOFloat Market.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
+<p><code>GET https://csgofloat.com/api/v1/listings</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -402,51 +440,164 @@ You must replace <code>&lt;API-KEY&gt;</code> with your personal API key.
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
+<td>page</td>
+<td>0</td>
+<td>Which page of listings to start from</td>
 </tr>
 <tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>limit</td>
+<td>100</td>
+<td>How many listings to return. Max of 100.</td>
+</tr>
+<tr>
+<td>order</td>
+<td><code>best_deal</code></td>
+<td>How to order the listings</td>
+</tr>
+<tr>
+<td>category</td>
+<td>0</td>
+<td>Can be one of: 0 = <code>any</code>, 1 = <code>normal</code>, 2 = <code>stattrak</code>, 3 = <code>souvenir</code></td>
+</tr>
+<tr>
+<td>def_index</td>
+<td></td>
+<td>Only include listings that have a one of the given def index(es)</td>
+</tr>
+<tr>
+<td>min_float</td>
+<td></td>
+<td>Only include listings that have a float higher then this</td>
+</tr>
+<tr>
+<td>max_float</td>
+<td></td>
+<td>Only include listings that have a float lower then this</td>
+</tr>
+<tr>
+<td>rarity</td>
+<td></td>
+<td>Only include listings that have this rarity</td>
+</tr>
+<tr>
+<td>paint_seed</td>
+<td></td>
+<td>Only include listings that have this paint seed</td>
+</tr>
+<tr>
+<td>paint_index</td>
+<td></td>
+<td>Only include listings that have this paint index</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td></td>
+<td>Only include listings from this SteamID64</td>
+</tr>
+<tr>
+<td>collection</td>
+<td></td>
+<td>Only include listings from this collection (ie. <code>set_bravo_ii</code>, derived from the schema)</td>
+</tr>
+<tr>
+<td>min_price</td>
+<td></td>
+<td>Only include listings have a price higher then this (in cents)</td>
+</tr>
+<tr>
+<td>max_price</td>
+<td></td>
+<td>Only include listings have a price lower then this (in cents)</td>
+</tr>
+<tr>
+<td>market_hash_name</td>
+<td></td>
+<td>Only include listings that have this market hash name</td>
+</tr>
+<tr>
+<td>type</td>
+<td></td>
+<td>Either <code>buy_now</code> or <code>auction</code></td>
+</tr>
+<tr>
+<td>stickers</td>
+<td></td>
+<td>Must be in the form: `<ID>\</td>
 </tr>
 </tbody></table>
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<h2 id='get-a-specific-listing'>Get a Specific Listing</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://csgofloat.com/api/v1/listings/324288155723370196"</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"324288155723370196"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-06-13T20:45:21.311794Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buy_now"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">260000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"listed"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"seller"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/97/974f0a94f47f50a1a6a769fc8ff093cb93a49066_full.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"flags"</span><span class="p">:</span><span class="w"> </span><span class="mi">435</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"online"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"stall_public"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"statistics"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"median_trade_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">236</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"total_failed_trades"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"total_trades"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"total_verified_trades"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"steam_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"76561198084749846"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Step7750"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"asset_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22547095285"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"def_index"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"paint_index"</span><span class="p">:</span><span class="w"> </span><span class="mi">449</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"paint_seed"</span><span class="p">:</span><span class="w"> </span><span class="mi">700</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"float_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.02796577662229538</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"icon_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhjxszYfi5H5di5mr-HnvD8J_WCkmkEvp0pi7zDodv3jAHj-UM5ZGr7INfHJAc9MlzV-FK_kO281pa_ot2XnrA-A3kA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"d_param"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17054198177995786400"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"is_stattrak"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"is_souvenir"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"rarity"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"quality"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"market_hash_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M4A4 | Poseidon (Factory New)"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"stickers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"stickerId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1060</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"slot"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"icon_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"columbus2016/nv_holo.fbbf7dc3ef16ade69ac294589fbe97f0a3169003.png"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sticker | Team EnVyUs (Holo) | MLG Columbus 2016"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"scm"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">736</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"tradable"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"inspect_link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"steam://rungame/730/76561202255233023/+csgo_econ_action_preview%20S76561198084749846A22547095285D17054198177995786400"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"has_screenshot"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"scm"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">175076</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"item_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M4A4 | Poseidon"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"wear_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Factory New"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"It has been custom painted with a depiction of a battle between Pisces and Poseidon.</span><span class="se">\\</span><span class="s2">n</span><span class="se">\\</span><span class="s2">n&lt;i&gt;Three can keep a secret if two of them are dead&lt;/i&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"collection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Gods and Monsters Collection"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"badges"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"is_seller"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"min_offer_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">221000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"max_offer_discount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"is_watchlisted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"watchers"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<p>This endpoint retrieves the details for a specific listing, regardless of whether it is &quot;active&quot; or &quot;in-active&quot; (ie. <code>state</code> != <code>listed</code>).</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
+<p><code>GET https://csgofloat.com/api/v1/listings/&lt;ID&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -456,46 +607,170 @@ Remember — a happy kitten is an authenticated kitten!
 </thead><tbody>
 <tr>
 <td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>The ID of the listing to retrieve</td>
 </tr>
 </tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span> <span class="se">\</span>
-  <span class="nt">-X</span> DELETE <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<h2 id='list-an-item'>List an item</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s2">"https://csgofloat.com/api/v1/listings"</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s2">"Authorization: &lt;API-KEY&gt;; Content-Type: application/json"</span> <span class="se">\</span>
+<span class="nt">-d</span> <span class="s1">'{"asset_id": 21078095468, "type": "buy_now", "price": 8900, "description": "Just for show", "private": false}'</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"292312870132253796"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-03-17T15:06:59.155367Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buy_now"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">8900</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Just for show"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"listed"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"seller"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"flags"</span><span class="p">:</span><span class="w"> </span><span class="mi">48</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"obfuscated_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9169061817522033479"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"online"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"stall_public"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"statistics"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"median_trade_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">305</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"total_failed_trades"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"total_trades"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"total_verified_trades"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"asset_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21078095468"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"def_index"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"paint_index"</span><span class="p">:</span><span class="w"> </span><span class="mi">77</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"paint_seed"</span><span class="p">:</span><span class="w"> </span><span class="mi">346</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"float_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.26253828406333923</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"icon_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhz2v_Nfz5H_uO-jb-NmOXxIK_ulGRD7cR9teTE8YXghRrhrRBrMWD7coCQegU6aQyE_gC6xOi6gJC5tJTMn3BqvyNztH_VnRS-n1gSOeVXeHpm"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"d_param"</span><span class="p">:</span><span class="w"> </span><span class="s2">"721253437254664138"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"is_stattrak"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"is_souvenir"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"rarity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"quality"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"market_hash_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M4A1-S | Boreal Forest (Field-Tested)"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"stickers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"stickerId"</span><span class="p">:</span><span class="w"> </span><span class="mi">55</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"slot"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"icon_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emskatowice2014/fnatic.7f37dae42f8afbd799b89f77334be023368ba27a.png"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sticker | Fnatic | Katowice 2014"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"scm"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">41000</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"stickerId"</span><span class="p">:</span><span class="w"> </span><span class="mi">55</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"slot"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"wear"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.09002881</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"icon_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emskatowice2014/fnatic.7f37dae42f8afbd799b89f77334be023368ba27a.png"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sticker | Fnatic | Katowice 2014"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"scm"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">41000</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"stickerId"</span><span class="p">:</span><span class="w"> </span><span class="mi">73</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"slot"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"wear"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.21217501</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"icon_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emskatowice2014/reason.d48f01f2758c2852ef32a68c49f7039ce211500a.png"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sticker | Reason Gaming | Katowice 2014"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"scm"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">118625</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"stickerId"</span><span class="p">:</span><span class="w"> </span><span class="mi">73</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"slot"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"icon_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emskatowice2014/reason.d48f01f2758c2852ef32a68c49f7039ce211500a.png"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sticker | Reason Gaming | Katowice 2014"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"scm"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">118625</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"tradable"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"has_screenshot"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"scm"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"item_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M4A1-S | Boreal Forest"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"wear_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Field-Tested"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"It has been painted using a forest camouflage hydrographic.</span><span class="se">\\</span><span class="s2">n</span><span class="se">\\</span><span class="s2">n&lt;i&gt;The woods can be a dangerous place... never travel alone&lt;/i&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"collection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Italy Collection"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"badges"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"is_seller"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"min_offer_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">7565</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"max_offer_discount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"is_watchlisted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"watchers"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>This endpoint deletes a specific kitten.</p>
+<p>This endpoint retrieves the details for a specific listing, regardless of whether it is &quot;active&quot; or &quot;in-active&quot; (ie. <code>state</code> != <code>listed</code>). Requires an authorization header.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
+<p><code>POST https://csgofloat.com/api/v1/listings</code></p>
+<h3 id='body-parameters'>Body Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Default</th>
 <th>Description</th>
+<th>Optional</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
+<td>type</td>
+<td><code>buy_now</code></td>
+<td>Either <code>buy_now</code> or <code>auction</code></td>
+<td>YES</td>
+</tr>
+<tr>
+<td>asset_id</td>
+<td></td>
+<td>The ID of the item to list</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>price</td>
+<td></td>
+<td>Either the <code>buy_now</code> price or the current bid or reserve price on an <code>auction</code></td>
+<td>NO (if <code>buy_now</code>)</td>
+</tr>
+<tr>
+<td>max_offer_discount</td>
+<td>Set in user profile</td>
+<td><code>buy_now</code> max discount for an offer. This will override the default set in your profile.</td>
+<td>YES</td>
+</tr>
+<tr>
+<td>reserve_price</td>
+<td></td>
+<td><code>auction</code> start price</td>
+<td>NO (if <code>auction</code>)</td>
+</tr>
+<tr>
+<td>duration_days</td>
+<td></td>
+<td><code>auction</code> duration in days. Can be: <code>1</code>, <code>3</code>, <code>5</code>, <code>7</code>, or <code>14</code></td>
+<td>NO (if <code>auction</code>)</td>
+</tr>
+<tr>
+<td>description</td>
+<td></td>
+<td>User defined description. Max characters of 180.</td>
+<td>YES</td>
+</tr>
+<tr>
+<td>private</td>
+<td>false</td>
+<td>If <code>true</code>, will hide listings from public searches</td>
+<td>YES</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
