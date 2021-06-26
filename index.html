@@ -348,7 +348,7 @@
 <h1 id='authentication'>Authentication</h1>
 <p>CSGOFloat uses API keys to allow access to the API. You can register a new CSGOFloat API key on your <a href="https://csgofloat.com/profile">profile</a> under the &quot;developer&quot; tab.</p>
 
-<p>Float Market expects for the API key to be included in most API requests. Endpoints that require an API Key will state so. The authorization header should look like the following:</p>
+<p>CSGOFloat API expects for the API key to be included in most API requests. Endpoints that require an API Key will state so. The authorization header should look like the following:</p>
 
 <p><code>Authorization: &lt;API-KEY&gt;</code></p>
 
@@ -452,7 +452,7 @@ You must replace <code>&lt;API-KEY&gt;</code> with your personal API key.
 <tr>
 <td>order</td>
 <td><code>best_deal</code></td>
-<td>How to order the listings</td>
+<td>How to order the listings. Can be one of: <ul><li><code>lowest_price</code></li><li><code>highest_price</code></li><li><code>most_recent</code></li><li><code>expires_soon</code></li><li><code>lowest_float</code></li><li><code>highest_float</code></li><li><code>best_deal</code></li><li><code>highest_discount</code></li><li><code>float_rank</code></li><li><code>num_bids</code></li></ul></td>
 </tr>
 <tr>
 <td>category</td>
@@ -522,7 +522,7 @@ You must replace <code>&lt;API-KEY&gt;</code> with your personal API key.
 <tr>
 <td>stickers</td>
 <td></td>
-<td>Must be in the form: `<ID>\</td>
+<td>Must be in the form: `ID\</td>
 </tr>
 </tbody></table>
 <h2 id='get-a-specific-listing'>Get a Specific Listing</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://csgofloat.com/api/v1/listings/324288155723370196"</span>
