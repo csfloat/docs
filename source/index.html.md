@@ -141,7 +141,7 @@ min_price | | Only include listings have a price higher then this (in cents)
 max_price | | Only include listings have a price lower then this (in cents)
 market_hash_name | | Only include listings that have this market hash name
 type | | Either `buy_now` or `auction`
-stickers | | Must be in the form: <code>ID\|POSITION?[,ID\|POSITION?...]</code>. Position being the sticker slot on the weapon.
+stickers | | Must be in the form: <code>ID&#124;POSITION?[,ID&#124;POSITION?...]</code>. Position being the sticker slot on the weapon.
 
 ## Get a Specific Listing
 
