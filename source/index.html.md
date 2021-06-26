@@ -337,7 +337,7 @@ curl -X POST "https://csgofloat.com/api/v1/listings" \
 }
 ```
 
-This endpoint retrieves the details for a specific listing, regardless of whether it is "active" or "in-active" (ie. `state` != `listed`). Requires an authorization header.
+This endpoint lists the item specified by `asset_id`. Requires an authorization header.
 
 ### HTTP Request
 
