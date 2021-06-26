@@ -35,175 +35,323 @@ Float Market expects for the API key to be included in most API requests. Endpoi
 You must replace <code>&lt;API-KEY&gt;</code> with your personal API key.
 </aside>
 
-# Kittens
+# Listings
 
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
+## Get All Listings
 
 ```shell
-curl "http://example.com/api/kittens" \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
+curl "https://csgofloat.com/api/v1/listings"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 [
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
+    {
+    "id": "324288155723370196",
+    "created_at": "2021-06-13T20:45:21.311794Z",
+    "type": "buy_now",
+    "price": 260000,
+    "state": "listed",
+    "seller": {
+        "avatar": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/97/974f0a94f47f50a1a6a769fc8ff093cb93a49066_full.jpg",
+        "flags": 435,
+        "online": true,
+        "stall_public": true,
+        "statistics": {
+            "median_trade_time": 236,
+            "total_failed_trades": 0,
+            "total_trades": 24,
+            "total_verified_trades": 24
+        },
+        "steam_id": "76561198084749846",
+        "username": "Step7750"
+    },
+    "item": {
+        "asset_id": "22547095285",
+        "def_index": 16,
+        "paint_index": 449,
+        "paint_seed": 700,
+        "float_value": 0.02796577662229538,
+        "icon_url": "-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhjxszYfi5H5di5mr-HnvD8J_WCkmkEvp0pi7zDodv3jAHj-UM5ZGr7INfHJAc9MlzV-FK_kO281pa_ot2XnrA-A3kA",
+        "d_param": "17054198177995786400",
+        "is_stattrak": false,
+        "is_souvenir": false,
+        "rarity": 5,
+        "quality": 4,
+        "market_hash_name": "M4A4 | Poseidon (Factory New)",
+        "stickers": [
+            {
+                "stickerId": 1060,
+                "slot": 3,
+                "icon_url": "columbus2016/nv_holo.fbbf7dc3ef16ade69ac294589fbe97f0a3169003.png",
+                "name": "Sticker | Team EnVyUs (Holo) | MLG Columbus 2016",
+                "scm": {
+                    "price": 736,
+                    "volume": 1
+                }
+            }
+        ],
+        "tradable": 0,
+        "inspect_link": "steam://rungame/730/76561202255233023/+csgo_econ_action_preview%20S76561198084749846A22547095285D17054198177995786400",
+        "has_screenshot": true,
+        "scm": {
+            "price": 175076,
+            "volume": 0
+        },
+        "item_name": "M4A4 | Poseidon",
+        "wear_name": "Factory New",
+        "description": "It has been custom painted with a depiction of a battle between Pisces and Poseidon.\\n\\n<i>Three can keep a secret if two of them are dead</i>",
+        "collection": "The Gods and Monsters Collection",
+        "badges": []
+    },
+    "is_seller": false,
+    "min_offer_price": 221000,
+    "max_offer_discount": 1500,
+    "is_watchlisted": false,
+    "watchers": 0
   }
+  ...
 ]
 ```
 
-This endpoint retrieves all kittens.
+This endpoint retrieves all active listings on CSGOFloat Market.
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`GET https://csgofloat.com/api/v1/listings`
 
 ### Query Parameters
 
 Parameter | Default | Description
 --------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+page | 0 | Which page of listings to start from
+limit | 100 | How many listings to return. Max of 100.
+order | `best_deal` | How to order the listings
+category | 0 | Can be one of: 0 = `any`, 1 = `normal`, 2 = `stattrak`, 3 = `souvenir`
+def_index | | Only include listings that have a one of the given def index(es)
+min_float | | Only include listings that have a float higher then this
+max_float | | Only include listings that have a float lower then this
+rarity | | Only include listings that have this rarity
+paint_seed | | Only include listings that have this paint seed
+paint_index | | Only include listings that have this paint index
+user_id | | Only include listings from this SteamID64
+collection | | Only include listings from this collection (ie. `set_bravo_ii`, derived from the schema)
+min_price | | Only include listings have a price higher then this (in cents)
+max_price | | Only include listings have a price lower then this (in cents)
+market_hash_name | | Only include listings that have this market hash name
+type | | Either `buy_now` or `auction`
+stickers | | Must be in the form: `<ID>\|<POSITION>?[,<ID>\|<POSITION>?...]`. Position being the sticker slot on the weapon.
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
+## Get a Specific Listing
 
 ```shell
-curl "http://example.com/api/kittens/2" \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
+curl "https://csgofloat.com/api/v1/listings/324288155723370196"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+    "id": "324288155723370196",
+    "created_at": "2021-06-13T20:45:21.311794Z",
+    "type": "buy_now",
+    "price": 260000,
+    "state": "listed",
+    "seller": {
+        "avatar": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/97/974f0a94f47f50a1a6a769fc8ff093cb93a49066_full.jpg",
+        "flags": 435,
+        "online": true,
+        "stall_public": true,
+        "statistics": {
+            "median_trade_time": 236,
+            "total_failed_trades": 0,
+            "total_trades": 24,
+            "total_verified_trades": 24
+        },
+        "steam_id": "76561198084749846",
+        "username": "Step7750"
+    },
+    "item": {
+        "asset_id": "22547095285",
+        "def_index": 16,
+        "paint_index": 449,
+        "paint_seed": 700,
+        "float_value": 0.02796577662229538,
+        "icon_url": "-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhjxszYfi5H5di5mr-HnvD8J_WCkmkEvp0pi7zDodv3jAHj-UM5ZGr7INfHJAc9MlzV-FK_kO281pa_ot2XnrA-A3kA",
+        "d_param": "17054198177995786400",
+        "is_stattrak": false,
+        "is_souvenir": false,
+        "rarity": 5,
+        "quality": 4,
+        "market_hash_name": "M4A4 | Poseidon (Factory New)",
+        "stickers": [
+            {
+                "stickerId": 1060,
+                "slot": 3,
+                "icon_url": "columbus2016/nv_holo.fbbf7dc3ef16ade69ac294589fbe97f0a3169003.png",
+                "name": "Sticker | Team EnVyUs (Holo) | MLG Columbus 2016",
+                "scm": {
+                    "price": 736,
+                    "volume": 1
+                }
+            }
+        ],
+        "tradable": 0,
+        "inspect_link": "steam://rungame/730/76561202255233023/+csgo_econ_action_preview%20S76561198084749846A22547095285D17054198177995786400",
+        "has_screenshot": true,
+        "scm": {
+            "price": 175076,
+            "volume": 0
+        },
+        "item_name": "M4A4 | Poseidon",
+        "wear_name": "Factory New",
+        "description": "It has been custom painted with a depiction of a battle between Pisces and Poseidon.\\n\\n<i>Three can keep a secret if two of them are dead</i>",
+        "collection": "The Gods and Monsters Collection",
+        "badges": []
+    },
+    "is_seller": false,
+    "min_offer_price": 221000,
+    "max_offer_discount": 1500,
+    "is_watchlisted": false,
+    "watchers": 0
 }
 ```
 
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+This endpoint retrieves the details for a specific listing, regardless of whether it is "active" or "in-active" (ie. `state` != `listed`).
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`GET https://csgofloat.com/api/v1/listings/<ID>`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to retrieve
+ID | The ID of the listing to retrieve
 
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
+## List an item
 
 ```shell
-curl "http://example.com/api/kittens/2" \
-  -X DELETE \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
+curl -X POST "https://csgofloat.com/api/v1/listings" \
+-H "Authorization: <API-KEY>; Content-Type: application/json" \
+-d '{"asset_id": 21078095468, "type": "buy_now", "price": 8900, "description": "Just for show", "private": false}'
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "deleted" : ":("
+    "id": "292312870132253796",
+    "created_at": "2021-03-17T15:06:59.155367Z",
+    "type": "buy_now",
+    "price": 8900,
+    "description": "Just for show",
+    "state": "listed",
+    "seller": {
+        "flags": 48,
+        "obfuscated_id": "9169061817522033479",
+        "online": false,
+        "stall_public": false,
+        "statistics": {
+            "median_trade_time": 305,
+            "total_failed_trades": 0,
+            "total_trades": 13,
+            "total_verified_trades": 13
+        }
+    },
+    "item": {
+        "asset_id": "21078095468",
+        "def_index": 60,
+        "paint_index": 77,
+        "paint_seed": 346,
+        "float_value": 0.26253828406333923,
+        "icon_url": "-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhz2v_Nfz5H_uO-jb-NmOXxIK_ulGRD7cR9teTE8YXghRrhrRBrMWD7coCQegU6aQyE_gC6xOi6gJC5tJTMn3BqvyNztH_VnRS-n1gSOeVXeHpm",
+        "d_param": "721253437254664138",
+        "is_stattrak": false,
+        "is_souvenir": false,
+        "rarity": 2,
+        "quality": 4,
+        "market_hash_name": "M4A1-S | Boreal Forest (Field-Tested)",
+        "stickers": [
+            {
+                "stickerId": 55,
+                "slot": 0,
+                "icon_url": "emskatowice2014/fnatic.7f37dae42f8afbd799b89f77334be023368ba27a.png",
+                "name": "Sticker | Fnatic | Katowice 2014",
+                "scm": {
+                    "price": 41000,
+                    "volume": 0
+                }
+            },
+            {
+                "stickerId": 55,
+                "slot": 1,
+                "wear": 0.09002881,
+                "icon_url": "emskatowice2014/fnatic.7f37dae42f8afbd799b89f77334be023368ba27a.png",
+                "name": "Sticker | Fnatic | Katowice 2014",
+                "scm": {
+                    "price": 41000,
+                    "volume": 0
+                }
+            },
+            {
+                "stickerId": 73,
+                "slot": 2,
+                "wear": 0.21217501,
+                "icon_url": "emskatowice2014/reason.d48f01f2758c2852ef32a68c49f7039ce211500a.png",
+                "name": "Sticker | Reason Gaming | Katowice 2014",
+                "scm": {
+                    "price": 118625,
+                    "volume": 0
+                }
+            },
+            {
+                "stickerId": 73,
+                "slot": 3,
+                "icon_url": "emskatowice2014/reason.d48f01f2758c2852ef32a68c49f7039ce211500a.png",
+                "name": "Sticker | Reason Gaming | Katowice 2014",
+                "scm": {
+                    "price": 118625,
+                    "volume": 0
+                }
+            }
+        ],
+        "tradable": 0,
+        "has_screenshot": true,
+        "scm": {
+            "price": 11,
+            "volume": 0
+        },
+        "item_name": "M4A1-S | Boreal Forest",
+        "wear_name": "Field-Tested",
+        "description": "It has been painted using a forest camouflage hydrographic.\\n\\n<i>The woods can be a dangerous place... never travel alone</i>",
+        "collection": "The Italy Collection",
+        "badges": []
+    },
+    "is_seller": false,
+    "min_offer_price": 7565,
+    "max_offer_discount": 1500,
+    "is_watchlisted": false,
+    "watchers": 0
 }
 ```
 
-This endpoint deletes a specific kitten.
+This endpoint retrieves the details for a specific listing, regardless of whether it is "active" or "in-active" (ie. `state` != `listed`). Requires an authorization header.
 
 ### HTTP Request
 
-`DELETE http://example.com/kittens/<ID>`
+`POST https://csgofloat.com/api/v1/listings`
 
-### URL Parameters
+### Body Parameters
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
-
+Parameter | Default | Description | Optional
+--------- | --------| ----------- | ----------
+type | `buy_now` | Either `buy_now` or `auction` | YES
+asset_id | | The ID of the item to list | NO
+price | | Either the `buy_now` price or the current bid or reserve price on an `auction` | NO (if `buy_now`)
+max_offer_discount | Set in user profile | `buy_now` max discount for an offer. This will override the default set in your profile. | YES
+reserve_price  | | `auction` start price | NO (if `auction`)
+duration_days | | `auction` duration in days. Can be: `1`, `3`, `5`, `7`, or `14` | NO (if `auction`)
+description | | User defined description. Max characters of 180. | YES
+private | false | If `true`, will hide listings from public searches | YES
