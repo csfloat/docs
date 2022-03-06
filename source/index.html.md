@@ -127,7 +127,7 @@ Parameter | Default | Description
 --------- | ------- | -----------
 page | 0 | Which page of listings to start from
 limit | 100 | How many listings to return. Max of 100.
-order | `best_deal` | How to order the listings. Can be one of: <ul><li>`lowest_price`</li><li>`highest_price`</li><li>`most_recent`</li><li>`expires_soon`</li><li>`lowest_float`</li><li>`highest_float`</li><li>`best_deal`</li><li>`highest_discount`</li><li>`float_rank`</li><li>`num_bids`</li></ul>
+sort_by | `best_deal` | How to order the listings. Can be one of: <ul><li>`lowest_price`</li><li>`highest_price`</li><li>`most_recent`</li><li>`expires_soon`</li><li>`lowest_float`</li><li>`highest_float`</li><li>`best_deal`</li><li>`highest_discount`</li><li>`float_rank`</li><li>`num_bids`</li></ul>
 category | 0 | Can be one of: 0 = `any`, 1 = `normal`, 2 = `stattrak`, 3 = `souvenir`
 def_index | | Only include listings that have a one of the given def index(es)
 min_float | | Only include listings that have a float higher then this
