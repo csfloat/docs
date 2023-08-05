@@ -19,15 +19,15 @@ code_clipboard: true
 
 # Introduction
 
-Welcome to the CSGOFloat API! You can use our API to access CSGOFloat API endpoints such as market listings, inspect link retrieval, and more!
+Welcome to the CSFloat API! You can use our API to access CSFloat API endpoints such as market listings, inspect link retrieval, and more!
 
 You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
 # Authentication
 
-CSGOFloat uses API keys to allow access to the API. You can register a new CSGOFloat API key on your [profile](https://csgofloat.com/profile) under the "developer" tab.
+CSFloat uses API keys to allow access to the API. You can register a new CSFloat API key on your [profile](https://csfloat.com/profile) under the "developer" tab.
 
-CSGOFloat API expects for the API key to be included in most API requests. Endpoints that require an API Key will state so. The authorization header should look like the following:
+CSFloat API expects for the API key to be included in most API requests. Endpoints that require an API Key will state so. The authorization header should look like the following:
 
 `Authorization: <API-KEY>`
 
@@ -40,7 +40,7 @@ You must replace <code>&lt;API-KEY&gt;</code> with your personal API key.
 ## Get All Listings
 
 ```shell
-curl "https://csgofloat.com/api/v1/listings"
+curl "https://csfloat.com/api/v1/listings"
 ```
 
 > The above command returns JSON structured like this:
@@ -115,11 +115,11 @@ curl "https://csgofloat.com/api/v1/listings"
 ]
 ```
 
-This endpoint retrieves all active listings on CSGOFloat Market.
+This endpoint retrieves all active listings on CSFloat Market.
 
 ### HTTP Request
 
-`GET https://csgofloat.com/api/v1/listings`
+`GET https://csfloat.com/api/v1/listings`
 
 ### Query Parameters
 
@@ -146,7 +146,7 @@ stickers | | Must be in the form: <code>ID&#124;POSITION?[,ID&#124;POSITION?...]
 ## Get a Specific Listing
 
 ```shell
-curl "https://csgofloat.com/api/v1/listings/324288155723370196"
+curl "https://csfloat.com/api/v1/listings/324288155723370196"
 ```
 
 > The above command returns JSON structured like this:
@@ -222,7 +222,7 @@ This endpoint retrieves the details for a specific listing, regardless of whethe
 
 ### HTTP Request
 
-`GET https://csgofloat.com/api/v1/listings/<ID>`
+`GET https://csfloat.com/api/v1/listings/<ID>`
 
 ### URL Parameters
 
@@ -233,7 +233,7 @@ ID | The ID of the listing to retrieve
 ## List an item
 
 ```shell
-curl -X POST "https://csgofloat.com/api/v1/listings" \
+curl -X POST "https://csfloat.com/api/v1/listings" \
 -H "Authorization: <API-KEY>; Content-Type: application/json" \
 -d '{"asset_id": 21078095468, "type": "buy_now", "price": 8900, "description": "Just for show", "private": false}'
 ```
@@ -341,7 +341,7 @@ This endpoint lists the item specified by `asset_id`. Requires an authorization 
 
 ### HTTP Request
 
-`POST https://csgofloat.com/api/v1/listings`
+`POST https://csfloat.com/api/v1/listings`
 
 ### Body Parameters
 
