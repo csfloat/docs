@@ -130,15 +130,15 @@ limit | 50 | How many listings to return. Max of 50.
 sort_by | `best_deal` | How to order the listings. Can be one of: <ul><li>`lowest_price`</li><li>`highest_price`</li><li>`most_recent`</li><li>`expires_soon`</li><li>`lowest_float`</li><li>`highest_float`</li><li>`best_deal`</li><li>`highest_discount`</li><li>`float_rank`</li><li>`num_bids`</li></ul>
 category | 0 | Can be one of: 0 = `any`, 1 = `normal`, 2 = `stattrak`, 3 = `souvenir`
 def_index | | Only include listings that have a one of the given def index(es)
-min_float | | Only include listings that have a float higher then this
-max_float | | Only include listings that have a float lower then this
+min_float | | Only include listings that have a float higher than this
+max_float | | Only include listings that have a float lower than this
 rarity | | Only include listings that have this rarity
 paint_seed | | Only include listings that have this paint seed
 paint_index | | Only include listings that have this paint index
 user_id | | Only include listings from this SteamID64
 collection | | Only include listings from this collection (ie. `set_bravo_ii`, derived from the schema)
-min_price | | Only include listings have a price higher then this (in cents)
-max_price | | Only include listings have a price lower then this (in cents)
+min_price | | Only include listings have a price higher than this (in cents)
+max_price | | Only include listings have a price lower than this (in cents)
 market_hash_name | | Only include listings that have this market hash name
 type | | Either `buy_now` or `auction`
 stickers | | Must be in the form: <code>ID&#124;POSITION?[,ID&#124;POSITION?...]</code>. Position being the sticker slot on the weapon.
