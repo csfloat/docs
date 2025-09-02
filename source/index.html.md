@@ -125,7 +125,7 @@ This endpoint retrieves all active listings on CSFloat Market.
 
 Parameter | Default | Description
 --------- | ------- | -----------
-page | 0 | Which page of listings to start from
+cursor | | Opaque cursor string from a previous fetch, used to fetch the next results
 limit | 50 | How many listings to return. Max of 50.
 sort_by | `best_deal` | How to order the listings. Can be one of: <ul><li>`lowest_price`</li><li>`highest_price`</li><li>`most_recent`</li><li>`expires_soon`</li><li>`lowest_float`</li><li>`highest_float`</li><li>`best_deal`</li><li>`highest_discount`</li><li>`float_rank`</li><li>`num_bids`</li></ul>
 category | 0 | Can be one of: 0 = `any`, 1 = `normal`, 2 = `stattrak`, 3 = `souvenir`
