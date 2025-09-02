@@ -12,6 +12,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential libxml2-dev libxslt-dev zlib1g-dev pkg-config
+
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
@@ -19,6 +25,7 @@ jobs:
         bundler-cache: true
 
     - run: bundle config set deployment 'true'
+    - run: bundle config build.nokogiri --use-system-libraries
     - name: bundle install
       run: |
         bundle config path vendor/bundle
