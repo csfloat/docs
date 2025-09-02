@@ -8,16 +8,16 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-      ruby-version: 3.2
+      ruby-version: 2.5
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v2
     - name: Set up Ruby
-      uses: ruby/setup-ruby@v1.170.0
+      uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ env.ruby-version }}
 
-    - uses: actions/cache@v4
+    - uses: actions/cache@v2
       with:
         path: vendor/bundle
         key: gems-${{ runner.os }}-${{ matrix.ruby-version }}-${{ hashFiles('**/Gemfile.lock') }}
@@ -34,7 +34,7 @@ jobs:
     - run: bundle exec middleman build
 
     - name: Push to Docker Hub
-      uses: docker/build-push-action@v6
+      uses: docker/build-push-action@v1
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_ACCESS_KEY }}
@@ -42,7 +42,7 @@ jobs:
         tag_with_ref: true
 
     - name: Deploy
-      uses: peaceiris/actions-gh-pages@v4
+      uses: peaceiris/actions-gh-pages@v3.7.0-8
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         destination_dir: dev
